@@ -1,11 +1,12 @@
 import React from "react";
+import Structure from "./Structure";
+import notes from "../notes";
 
 function Note() {
   return (
-    <div className="note">
-      <h1>This is the note title</h1>
-      <p>This is the note content</p>
-    </div>
+    notes.map((note)=>(
+      <Structure key={note.key} title = {note.title} content={note.content}/>
+    ))
   );
 }
 
