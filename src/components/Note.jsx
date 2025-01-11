@@ -1,12 +1,16 @@
 import React from "react";
-import Structure from "./Structure";
-import notes from "../notes";
 
-function Note() {
+function Note(props) {
+  function handleClick() {
+    props.onDelete(props.id);
+  }
+
   return (
-    notes.map((note)=>(
-      <Structure key={note.key} title = {note.title} content={note.content}/>
-    ))
+    <div className="note">
+      <h1>{props.title}</h1>
+      <p>{props.content}</p>
+      <button onClick={handleClick}>DELETE</button>
+    </div>
   );
 }
 
